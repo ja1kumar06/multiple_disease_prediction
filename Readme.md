@@ -1,110 +1,129 @@
-# Multiple Disease Prediction Using Machine Learning
+Multiple Disease Prediction Using Machine Learning
+Welcome to the Multiple Disease Prediction System — a comprehensive machine learning project that predicts the risk of multiple common diseases from patient data with high accuracy.
 
-### Welcome to the Multiple Disease Prediction System — A comprehensive machine learning project that predicts the risk of multiple common diseases from patient data with high accuracy.
+Supported Diseases
+Disease	Accuracy
+Heart Disease	~96.1%
+Diabetes	~89.2%
+Parkinson's Disease	100%
+Chronic Kidney Disease	100%
+Combined	96.3%
 
----
+Technologies Used
 
-## Supported Diseases
+Python 3.x
 
-Our system currently predicts the following diseases with associated model accuracy:
+Streamlit (Interactive Web Interface)
 
-| Disease                  | Accuracy   |
-|--------------------------|------------|
-| Heart Disease            | ~96.1%     |
-| Diabetes                 | ~89.2%     |
-| Parkinson's Disease      | 100%       |
-| Chronic Kidney Disease   | 100%       |
-| Combined                 | 96.3%      |
+Scikit-Learn (Machine Learning Models)
 
----
+Pandas & NumPy (Data Processing)
 
-## Technologies Used
+Flask (Optional API Backend)
 
-- Python 3.x
-- Streamlit (Interactive Web Interface)
-- Scikit-Learn (Machine Learning Models)
-- Pandas & NumPy (Data Processing)
-- Flask (Optional API Backend)
-- Random Forest Classifiers
+Random Forest Classifiers
 
----
+Docker (Containerization & portability)
 
-## Features
+AWS S3 (Cloud storage for models/data)
 
-- Interactive user-friendly web app to enter patient data and get real-time predictions.
-- Synthetic but clinically relevant datasets for each disease.
-- Models trained to deliver ultra-high accuracy.
-- Extensible modular codebase for adding new diseases or data sources.
-- Pickled models and accuracy snapshots for fast deployment.
+AWS CLI (Automated asset retrieval)
 
----
+Features
 
-## Installation
+Interactive, user-friendly web app for real-time disease risk prediction.
 
-### Step 1: Clone the repository
+Synthetic but clinically relevant datasets for each disease.
+
+Highly accurate models, fast deployment with pickled files.
+
+Modular codebase for easy extension to more diseases or sources.
+
+Cloud integration using Docker and AWS S3, for scalable production.
+
+Installation
+
+Step 1: Clone the repository
 
 git clone https://github.com/ja1kumar06/multiple_disease_prediction_using_ML.git
 
 cd multiple_disease_prediction_using_ML
 
+Step 2: Install required packages
 
-### Step 2: Install required packages
+pip install -r Requirements.txt
 
-pip install -r requirements.txt
-
-
----
-
-## Usage
-
-Launch the interactive Streamlit web application:
+Usage — Local (Streamlit)
 
 streamlit run app.py
 
+Select a disease from the sidebar.
 
-- Select a disease from the sidebar.
-- Enter patient clinical parameters.
-- Click the predict button for risk assessment.
-- View risk probability and interpretative insights.
+Enter patient clinical parameters.
 
----
+Click "Predict" for risk assessment.
 
-## 📁 Project Structure
+View probability and interpretative insights.
 
-- [`app.py`](./app.py) → Streamlit web app frontend  
-- [`multiple_disease_prediction_model.py`](./multiple_disease_prediction_model.py) → Model training scripts  
-- [`models.pkl`](./models.pkl) → Serialized trained models  
-- [`accuracies.pkl`](./accuracies.pkl) → Model accuracy data  
-- [`datasets/`](./datasets) → Folder containing synthetic datasets  
-  - [`heart_disease.csv`](./datasets/heart_disease.csv) → Heart disease synthetic dataset  
-  - [`diabetes.csv`](./datasets/diabetes.csv) → Diabetes synthetic dataset  
-  - [`parkinsons.csv`](./datasets/parkinsons.csv) → Parkinson’s disease synthetic dataset  
-  - [`ckd.csv`](./datasets/ckd.csv) → CKD synthetic dataset  
-- [`requirements.txt`](./requirements.txt) → Python package dependencies  
-- [`README.md`](./README.md) → Project description  
-- [`.gitattributes`](./.gitattributes) → Git settings for consistent line endings  
-- [`.gitignore`](./.gitignore) → Files/folders ignored by Git  
+Usage — Docker & AWS S3 Integration
 
-## Contributing
+This project supports running in Docker with automatic downloading of models and datasets from AWS S3.
 
-Contributions, issues, and feature requests are welcome! Feel free to:
+Prerequisites:
 
-- Fork the repo
-- Create a new branch for your feature/fix
-- Submit a pull request describing your changes
+AWS S3 bucket with required files (models.pkl, accuracies.pkl, all datasets).
 
+AWS credentials configured (IAM role, environment variables, or aws configure).
 
+Build and Run Docker Container:
 
----
+#bash
 
-## Contact
+docker build -t disease-prediction-app .
 
-For questions, suggestions or collaboration, reach out via:  
-**Email:** jaiswaroop1259@gmail.com
+docker run -e S3_BUCKET=your-s3-bucket-name disease-prediction-app
 
----
+What happens:
+
+Docker container downloads all required assets from S3 into expected locations (via download_s3_assets.sh).
+
+Your app starts with the latest models and datasets from the cloud.
+
+📁 Project Structure
+
+Multiple_Disease_Prediction/
+├── app.py
+├── multiple_disease_prediction_model.py
+├── Requirements.txt
+├── README.md
+├── Dockerfile                # <---- NEW: Docker deployment
+├── download_s3_assets.sh     # <---- NEW: S3 asset sync script
+├── datasets/
+│   ├── heart.csv
+│   ├── diabetes.csv
+│   ├── parkinsons.csv
+│   └── ckd.csv
+├── models.pkl
+├── accuracies.pkl
+├── .gitattributes
+├── .gitignore
+
+Contributing
+
+Contributions, bug reports, and feature requests are welcome!
+
+Fork the repo
+
+Create a feature branch
+
+Submit your pull request with a clear description
+
+Please follow coding standards and document your changes.
+
+Contact & Support
+
+For questions or collaboration, reach out via:
+
+Email: jaiswaroop1259@gmail.com
 
 Thank you for visiting and supporting this project! ⭐
-
-
-
