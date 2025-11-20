@@ -1,0 +1,29 @@
+streamlit==1.28.0
+pandas==2.0.3
+numpy==1.24.3
+scikit-learn==1.3.0
+flask==2.3.3
+
+--------
+
+Explanation:
+
+streamlit: For the interactive web app frontend.
+
+pandas and numpy: For data handling and scientific computing.
+
+scikit-learn: For machine learning models and preprocessing pipelines.
+
+flask: Optional, in case you use the Flask API backend.
+
+--------
+
+How to use requirements.txt:
+
+Save this content in a file named requirements.txt in your project root folder.
+
+Install all dependencies with:
+
+pip install -r requirements.txt
+
+This ensures your environment matches what your code needs to run smoothly.
